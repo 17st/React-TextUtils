@@ -43,7 +43,6 @@ function App() {
   return (
     <>   
     {/* <Navbar title="TextUtils" AboutText="About TextUtils"/> */}
-    {/* <Navbar/> */}
     {/* <Router> */}
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
@@ -53,7 +52,7 @@ function App() {
             <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the Text to Analyze Below" mode={mode}/>
             }/>
         </Routes> */}
-        <TextForm showAlert={showAlert} heading="Enter the Text to Analyze Below" mode={mode}/>
+        <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Reverse Text" mode={mode}/>
       </div>    
     {/* </Router> */}
     </>  
