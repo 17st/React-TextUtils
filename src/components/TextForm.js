@@ -51,8 +51,8 @@ export default function TextForm(props) {
     }
 
     const handleReverse = () => {
-        let reversedText = text.split('').reverse().join('');
-        setNewText(reversedText); // Update newText state
+        let reversedText = text.split(' ').reverse().join(' ');
+        setNewText(reversedText);
         props.showAlert("Text Reversed!", "success");
     }
 
