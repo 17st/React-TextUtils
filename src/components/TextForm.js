@@ -78,8 +78,8 @@ export default function TextForm(props) {
             <p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
             <h3>Preview</h3>
             <p>{text.length>0?text:"Nothing to Preview!"}</p>
-            {/* <h3>Reversed Text:</h3> */}
-            <p>{text.reverse}</p>
+            <h3>Reversed Text:</h3>
+            <p>{text}</p>
         </div>
     </>
   );
