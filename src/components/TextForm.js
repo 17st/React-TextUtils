@@ -85,7 +85,7 @@ export default function TextForm(props) {
                 <h3>Preview</h3>
                 <p>{text.length > 0 ? text : "Nothing to Preview!"}</p>
                 <h3>Reversed Text:</h3>
-                <p>{newText}</p> {/* Display the reversed text here */}
+                <p>{newText.length > 0 ? newText : "Nothing to Reverse Text"}</p> {/* Display the reversed text here */}
             </div>
         </>
     );
