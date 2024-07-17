@@ -9,16 +9,19 @@ import { BsReverseLayoutTextSidebarReverse } from "react-icons/bs";
 
 export default function TextForm(props) {
     const handleUpClick = ()=>{
+        // console.log("Uppercase was clicked" + text);
         let newText = text.toUpperCase();
         setText(newText)
         props.showAlert("Converted to Uppercase!", "success")
     }
 
     const handleOnChange = (event)=>{
+        // console.log("On change");
         setText(event.target.value);
     }
 
     const handleLoClick = ()=>{
+        // console.log("Uppercase was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText)
         props.showAlert("Converted to Lowercase!", "success")
@@ -38,7 +41,8 @@ export default function TextForm(props) {
     }
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text.value);
+        // console.log("I am Copy");
+        navigator.clipboard.writeText(text);
         props.showAlert("Copied to Clipboard!", "success")
     }
 
@@ -49,6 +53,7 @@ export default function TextForm(props) {
     }
 
     const handleReverse = ()=>{
+        // console.log("Uppercase was clicked" + text);
         let newText = text.split(' ').reverse().join(' ');
         setText(newText)
         props.showAlert("Text Reversed!", "success")
@@ -62,15 +67,15 @@ export default function TextForm(props) {
         <div className="container" style={{color: props.mode === 'dark'?'white': 'black'}}>
             <h2 className='mb-3'>{props.heading} </h2>
             <div className="mb-3" >
-                <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode === 'dark'?'white': 'black'}} id="myBox" rows="8"></textarea>
+                <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode === 'dark'?'white': 'black'}} id="myBox" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>  <RxLetterCaseUppercase /> Convert to Uppercase</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}> <RxLetterCaseLowercase /> Convert to Lowercase</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}> <TbClearFormatting /> Clear Text</button>
-            <button type="submit" onClick={speak} className="btn btn-primary mx-2 my-2"> <FaAssistiveListeningSystems /> Listen</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}> <FaRegCopy /> Copy Text</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}> <IoBackspaceOutline /> Remove Extra Space </button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleReverse}> <BsReverseLayoutTextSidebarReverse /> Reverse Text </button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>  <RxLetterCaseUppercase /> Convert to Uppercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}> <RxLetterCaseLowercase /> Convert to Lowercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}> <TbClearFormatting /> Clear Text</button>
+            <button disabled={text.length===0} type="submit" onClick={speak} className="btn btn-primary mx-2 my-2"> <FaAssistiveListeningSystems /> Listen</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}> <FaRegCopy /> Copy Text</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}> <IoBackspaceOutline /> Remove Extra Space </button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleReverse}> <BsReverseLayoutTextSidebarReverse /> Reverse Text </button>
         </div>
         <div className="container my-3" style={{color: props.mode === 'dark'?'white': 'black'}}>
             <h2>Your text summary</h2>
@@ -78,11 +83,10 @@ export default function TextForm(props) {
             <p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
             <h3>Preview</h3>
             <p>{text.length>0?text:"Nothing to Preview!"}</p>
-            <h3>Reversed Text:</h3>
-            <p>{text}</p>
+            {/* <h3>Reversed Text:</h3> */}
+            <p>{text.reverse}</p>
         </div>
     </>
   );
 
 };
-
