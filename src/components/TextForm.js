@@ -52,12 +52,12 @@ export default function TextForm(props) {
         props.showAlert("Extra Spaces Removed!", "success")
     }
 
-    const handleReverse = ()=>{
-        // console.log("Uppercase was clicked" + text);
-        let newText = text.split(' ').reverse().join(' ');
-        setText(newText)
-        props.showAlert("Text Reversed!", "success")
+    const handleReverse = () => {
+        let newText = text.split('').reverse().join('');
+        setText(newText);
+        props.showAlert("Text Reversed!", "success");
     }
+    
 
    const [text, setText] = useState('Enter text here');
    //text = "new text"; //Wrong way to change the state
@@ -82,9 +82,9 @@ export default function TextForm(props) {
             <p><b>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} word and {text.replace(/\s/g, '').length} characters</b></p>
             <p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
             <h3>Preview</h3>
-            <p>{text.length>0?text:"Nothing to Preview!"}</p>
-            {/* <h3>Reversed Text:</h3> */}
-            <p>{text.reverse}</p>
+            <p>{text.length > 0 ? text : "Nothing to Preview!"}</p>
+            <h3>Reversed Text:</h3>
+            <p>{newText}</p>
         </div>
     </>
   );
